@@ -7,5 +7,9 @@
 
 <h2>Select User</h2>
 <p>User :<</p>
-@Html.DropDownList("users", null, String.Empty)
+@using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
+{
+    @Html.DropDownList("userId", null, String.Empty, new {@onChange = "form.submit();"})
+}
+
 @Html.ActionLink("Create New User", "NewUser", "Users")
